@@ -115,7 +115,8 @@
           });
 
           for (var i = 0; i < packages.length; i++) {
-            scripts[i] = {'value':packages[i].name, 'version':packages[i].version, 'filename':packages[i].filename};
+            scripts[i] = {'value':packages[i].name, 'version':packages[i].version,
+                                                    'filename':packages[i].filename};
           }
 
           localStorage.setItem('timeout', '2500');
@@ -131,12 +132,15 @@
     });
   }
 
-
+  // select next element by...
+  // TODO: Re-implement, naive solution FUCKING HORRIBLE
   function goToNext(by) {
     by = by || 1;
     for (var i = 0; i < by; i++) {
+      // get current selected element
       var current = $('.selected');
       if (current.length) {
+        // un-select current element and set next searched element as selected
         current.removeClass('selected');
         current = current.next('.searched');
         current.addClass('selected');
@@ -152,6 +156,8 @@
     }
   }
 
+  // select previous element by...
+  // TODO: needs to be a general function that does next and prev
   function goToPrev(by) {
     by = by || 1;
 
@@ -167,6 +173,7 @@
     }
   }
 
+  Contruct a tooltip  when an library is clicked
   function toolTip(msg, position, positive) {
     var $tooltip = $('.tooltip');
     $tooltip.find('.tool-message').text(msg);
@@ -185,7 +192,7 @@
     }, 1000);
   }
 
-
+  // TODO: implement an actual error case
   function showErrorMessage() {
     // incase No Packages Period----->-->--->---->
     $("body").append("TRY AGAIN!");
