@@ -115,8 +115,11 @@
           });
 
           for (var i = 0; i < packages.length; i++) {
-            scripts[i] = {'value':packages[i].name, 'version':packages[i].version,
-                                                    'filename':packages[i].filename};
+            scripts[i] = {
+              'value':packages[i].name,
+              'version':packages[i].version,
+              'filename':packages[i].filename
+            };
           }
 
           localStorage.setItem('timeout', '2500');
@@ -140,7 +143,7 @@
       // get current selected element
       var current = $('.selected');
       if (current.length) {
-        // un-select current element and set next searched element as selected
+        // de-select current element and set next searched element as selected
         current.removeClass('selected');
         current = current.next('.searched');
         current.addClass('selected');
@@ -173,7 +176,7 @@
     }
   }
 
-  Contruct a tooltip  when an library is clicked
+  // Contruct a tooltip at set position with given message
   function toolTip(msg, position, positive) {
     var $tooltip = $('.tooltip');
     $tooltip.find('.tool-message').text(msg);
